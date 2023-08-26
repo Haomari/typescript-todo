@@ -1,25 +1,6 @@
-// default component layout
-import Header from "./layouts/layout-components/Header";
-import Footer from "./layouts/layout-components/Footer";
-import Home from "./pages/Home";
-
-
-function App() {
-	return (
-		<>
-			<Header />
-			<Home />
-			<Footer />
-		</>
-  );
-}
-
-export default App;
-
-
 // react router component layout
 
-/* import {
+import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
@@ -35,7 +16,7 @@ import Error from "./pages/Error";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />} errorElement={<Error />}>
+    <Route path="/" element={<Layout />} /* errorElement={<Error />} */>
       <Route index element={<Home />} />
 		
       <Route path="*" element={<Page404 />} />
@@ -43,8 +24,8 @@ const router = createBrowserRouter(
   )
 );
 
-function App() {
+const App: React.FC = () => {
   return <RouterProvider router={router} />;
 }
 
-export default App; */
+export default App;
