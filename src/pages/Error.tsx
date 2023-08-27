@@ -3,7 +3,7 @@ import { Link, useRouteError } from 'react-router-dom'
 // Component to display an error message and status
 export default function Error() {
   // Fetch the error details from the route
-  const error = useRouteError()
+  const error:any = useRouteError()
 
   return (
     <main className="error">

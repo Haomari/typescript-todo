@@ -1,14 +1,21 @@
-import * as React from 'react';
-import { useState } from 'react';
+import * as React from "react";
+import { useState } from "react";
+import InputField from "components/InputField";
 
-const [todoData, setTodoData] = useState<string>("")
+const Home: React.FC = () => {
+  const [todoInputData, setTodoInputData] = useState<string>("");
+  return (
+    <main className="home">
+      <div className="home__container">
+        <div className="home__input-body">
+          <InputField
+            todoInputData={todoInputData}
+            setTodoInputData={setTodoInputData}
+          />
+        </div>
+      </div>
+    </main>
+  );
+};
 
-export default function Home() {
-	return (
-		<main className="home">
-			<div className="home__container">
-				<InputField />
-			</div>
-		</main>
-	)
-}
+export default Home;
