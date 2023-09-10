@@ -1,19 +1,12 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 interface Props {
   setTodoInputData: React.Dispatch<React.SetStateAction<string>>;
   todoInputData: string;
+	newTodo: () => void;
 }
 
-const InputField = ({ setTodoInputData, todoInputData }: Props) => {
-
-	const ref = useRef(null);
-	const [buttonWidth, setButtonWidth] = useState<number>(0)
-
-	useLayoutEffect(() => {
-		const hight: any = ref.current.offsetWidth
-    setButtonWidth(ref?.current?.offsetWidth as any);
-  }, []);
+const InputField = ({ setTodoInputData, todoInputData, newTodo }: Props) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoInputData(e.target.value);
@@ -21,15 +14,17 @@ const InputField = ({ setTodoInputData, todoInputData }: Props) => {
 
   return (
     <div className="main-input">
-      <input
-			
-        placeholder="Enter a Task"
-        type="text"
-        value={todoInputData}
-        onChange={handleChange}
-      />
-      <div ref={ref}>
-        <button></button>
+      <div className="main-input__body">
+        <input
+          tabIndex={1}
+          placeholder="Enter a Task"
+          type="text"
+          value={todoInputData}
+          onChange={handleChange}
+        />
+        <div>
+          <button onClick={newTodo} tabIndex={2}>GO</button>
+        </div>
       </div>
     </div>
   );
